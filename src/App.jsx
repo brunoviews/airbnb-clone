@@ -8,8 +8,11 @@ function App() {
 
   return (
     <>
-      <Navbar />
-      <Home />
+    <div className='max-sm:container max-sm:mx-auto'>
+    <Navbar />
+    <Home />
+    </div>
+      
     </>
   )
 }

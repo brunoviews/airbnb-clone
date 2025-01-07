@@ -1,6 +1,8 @@
 import React from "react";
 import StarIcon from "../icons/StarIcon";
 import HeartIcon from "../icons/HeartIcon";
+import LoginModal from "../components/LoginModal";
+import { useState } from "react";
 
 const ListingCard = ({
   image,
@@ -11,13 +13,14 @@ const ListingCard = ({
   host,
   recomendation,
 }) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   return (
-    <div className="rounded-lg overflow-hidden">
+    <div className="rounded-lg overflow-hidden md:w-[300px] lg:w-[350px] xl:w-[400px]">
       <div className="relative">
         <img
           src={image}
           alt={title}
-          className="h-64 w-72 object-cover rounded-lg"
+          className="object-cover rounded-lg h-[200px] w-full md:h-[250px] lg:h-[300px] xl:h-[355px]"
         />
         <div className="flex cursor-pointer">
           {recomendation && (
@@ -25,25 +28,31 @@ const ListingCard = ({
               {recomendation}
             </p>
           )}
-          <p className="w-fit absolute top-3 right-2 cursor-pointer">
+          <div className="w-fit absolute top-3 right-2 cursor-pointer">
             {" "}
-            <HeartIcon />{" "}
-          </p>
+            <button onClick={() => setIsModalOpen(true)}>
+              <HeartIcon />
+            </button>
+            {isModalOpen && (
+              <LoginModal onClose={() => setIsModalOpen(false)} />
+            )}
+          </div>
         </div>
       </div>
-      <div className="p-4 bg-transparent">
+      <div className="py-4  bg-transparent">
         <div className="flex items-center justify-between mb-2">
-          <h4 className="text-xs font-bold text-gray-800 mb-1">{title}</h4>
-          <div className="flex items-center gap-1 text-xs text-black font-normal">
+          <h4 className="text-sm  font-bold text-gray-800 mb-1">{title}</h4>
+          <div className="flex items-center gap-1 text-sm text-black font-normal">
             <StarIcon /> {rating}{" "}
           </div>
         </div>
-
-        <p className="text-xs text-gray-600 mb-1">{location}</p>
-        <p className="text-xs text-gray-500 mb-2">Anfitrión: {host}</p>
-        <p className="text-xs font-bold text-gray-800">
-          {price} € <span className="font-light">noche</span>{" "}
-        </p>
+        
+          <p className="text-sm text-gray-600 mb-1">{location}</p>
+          <p className="text-sm text-gray-500 mb-2">Anfitrión: {host}</p>
+          <p className="text-sm font-bold text-gray-800">
+            {price} € <span className="font-light">noche</span>{" "}
+          </p>
+        
       </div>
     </div>
   );
