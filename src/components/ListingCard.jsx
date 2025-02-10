@@ -39,20 +39,19 @@ const ListingCard = ({
           </div>
         </div>
       </div>
-      <div className="py-4  bg-transparent">
+      <div className="py-4 bg-transparent">
         <div className="flex items-center justify-between mb-2">
           <h4 className="text-sm  font-bold text-gray-800 mb-1">{title}</h4>
           <div className="flex items-center gap-1 text-sm text-black font-normal">
             <StarIcon /> {rating}{" "}
           </div>
         </div>
-        
-          <p className="text-sm text-gray-600 mb-1">{location}</p>
-          <p className="text-sm text-gray-500 mb-2">Anfitrión: {host}</p>
-          <p className="text-sm font-bold text-gray-800">
-            {price} € <span className="font-light">noche</span>{" "}
-          </p>
-        
+
+        <p className="text-sm text-gray-600 mb-1">{location}</p>
+        <p className="text-sm text-gray-500 mb-2">Anfitrión: {host}</p>
+        <p className="text-sm font-bold text-gray-800">
+          {price} € <span className="font-light">noche</span>{" "}
+        </p>
       </div>
     </div>
   );
