@@ -11,7 +11,7 @@ const Home = () => {
   const [listings, setListings] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5001/api/listings")
+    fetch("https://airbnb-backend-z0xr.onrender.com/api/listings")
       .then((res) => res.json())
       .then((data) => setListings(data))
       .catch((err) => console.error(err));
